@@ -14,14 +14,16 @@ Date: 2018-02-28
 """
 
 score = float(input('请输入成绩: '))
-if score >= 90:
-	grade = 'A'
-elif score >= 80:
-	grade = 'B'
-elif score >= 70:
-	grade = 'C'
-elif score >= 60:
-	grade = 'D'
+if 100 >= score >= 90:
+    grade = 'A'
+elif 90 > score >= 80:
+    grade = 'B'
+elif 80 > score >= 70:
+    grade = 'C'
+elif 70 > score >= 60:
+    grade = 'D'
+elif 60 > score >= 0:
+    grade = 'E'
 else:
-	grade = 'E'
+    grade = '请输入有效单位！'
 print('对应的等级是:', grade)

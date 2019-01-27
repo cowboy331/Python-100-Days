@@ -28,9 +28,9 @@ Date: 2018-03-01
 
 row = int(input('请输入行数: '))
 for i in range(row):
-    for _ in range(i + 1):
-        print('*', end='')
-    print()
+    for _ in range(i + 1):  #以_开头的变量名
+        print('*', end='')  #去掉结尾的\n
+    print()     #print()默认以'\n'结尾
 
 for i in range(row):
     for j in range(row):
