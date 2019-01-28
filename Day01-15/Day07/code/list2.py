@@ -21,13 +21,13 @@ def main():
 	fruits += ['pitaya', 'pear', 'mango']
 	# 循环遍历列表元素
 	for fruit in fruits:
-		print(fruit.title(), end=' ')
+		print(fruit.title(), end=' ')	#Python title() 方法返回"标题化"的字符串,就是说所有单词都是以大写开始，其余字母均为小写(见 istitle())。
 	print()
 	# 列表切片
 	fruits2 = fruits[1:4]
 	print(fruits2)
 	# fruit3 = fruits  # 没有复制列表只创建了新的引用
-	fruits3 = fruits[:]
+	fruits3 = fruits[:]		# 可以通过完整切片操作来复制列表
 	print(fruits3)
 	fruits4 = fruits[-3:-1]
 	print(fruits4)

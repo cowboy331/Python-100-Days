@@ -21,11 +21,32 @@ import time
 import shutil
 import os
 
+############ the formated code by me####################################
 seconds = time.time()
 print("seconds: %.4f"%seconds)
 localtime = time.localtime(seconds)
-print('localtime:{0}'.format(localtime))
-# print('localtime: %.4f'%localtime)
+print('localtime: {0}'.format(localtime))
+print('localtime.tm_year: %d' %localtime.tm_year)
+print('localtime.tm_mon: %i'%localtime.tm_mon)
+print('localtime.tm_mday: %a'%localtime.tm_mday)
+asctime = time.asctime(localtime)
+print('asctime: {}'.format(asctime))
+strtime = time.strftime('%Y-%m-%d %H:%M:%S', localtime)
+print('strtime: {}'.format(strtime))
+mydate = time.strptime('2018-1-1', '%Y-%m-%d')
+print('mydate: {}'.format(mydate))
+
+shutil.copy('c:/Users/kk/hello.py', 'c:/Users/kk/Desktop/first.py')
+os.system('ls -l')
+os.chdir('c:/Users/kk')
+os.system('ls -l')
+os.mkdir('test')
+
+######## the original code by the author###############
+# seconds = time.time()
+# print(seconds)
+# localtime = time.localtime(seconds)
+# print(localtime)
 # print(localtime.tm_year)
 # print(localtime.tm_mon)
 # print(localtime.tm_mday)

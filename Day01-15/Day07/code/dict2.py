@@ -23,7 +23,7 @@ def main():
 	print(stu)
 	stu.setdefault('score', 60)
 	print(stu)
-	stu.setdefault('score', 100)
+	stu.setdefault('score', 100)		#??
 	print(stu)
 	stu['score'] = 100
 	print(stu)

@@ -31,7 +31,7 @@ def main():
     print()
     # 将元组转换成集合
     set3 = set((1, 2, 3, 3, 2, 1))
-    print(set3.pop())
+    print(set3.pop())   #当集合是由列表和元组组成时,set.pop()是从左边删除元素的
     print(set3)
 
 
