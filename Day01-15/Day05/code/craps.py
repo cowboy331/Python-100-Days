@@ -22,7 +22,7 @@ while money > 0:
 	needs_go_on = False
 	while True:
 		debt = int(input('请下注: '))
-		if debt > 0 and debt <= money:
+		if debt > 0 and debt <= money:	# 如果超出范围，需要一直下注，直到在范围内。
 			break
 	first = randint(1, 6) + randint(1, 6)
 	print('玩家摇出了%d点' % first)
