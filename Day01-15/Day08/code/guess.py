@@ -10,7 +10,7 @@ Date: 2018-03-08
 
 from random import randint
 
-
+#程序里装饰器的意义何在？防止直接访问私有属性吗？
 class GuessMachine(object):
 
 	def __init__(self):

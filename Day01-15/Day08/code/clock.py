@@ -44,10 +44,10 @@ class Clock(object):
 
 
 if __name__ == '__main__':
-	# clock = Clock(hour=10, minute=5, second=58)
-	clock = Clock()
+	clock = Clock(hour=10, minute=5, second=58)
+	# clock = Clock()
 	while True:
 		os.system('clear')
 		print(clock.show())
-		time.sleep(1)
+		time.sleep(1)	#每隔1秒run一次，所以就实现了timing
 		clock.run()
