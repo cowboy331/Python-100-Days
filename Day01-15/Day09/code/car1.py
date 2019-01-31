@@ -3,6 +3,7 @@
 属性的使用
 	- 访问器/修改器/删除器
 	- 使用__slots__对属性加以限制
+	- 如果我们需要限定自定义类型的对象只能绑定某些属性，可以通过在类中定义__slots__变量来进行限定。需要注意的是__slots__的限定只对当前类的对象生效，对子类并不起任何作用
 
 Version: 0.1
 Author: 骆昊
@@ -13,6 +14,7 @@ Date: 2018-03-12
 
 class Car(object):
 
+# 限定Car对象只能绑定-brand、_max_speed
 	__slots__ = ('_brand', '_max_speed')
 
 	def __init__(self, brand, max_speed):
