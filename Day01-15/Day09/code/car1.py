@@ -60,8 +60,9 @@ print(car)
 # del car.brand
 # 属性的实现
 print(Car.brand)
-print(Car.brand.fget)
-print(Car.brand.fset)
+print(Car.brand.fget(car))
+print(Car.brand.fset(car,"BMW"))
+print(Car.brand.fget(car))
 print(Car.brand.fdel)
 # 通过上面的代码帮助学生理解之前提到的包装器的概念
 # Python中有很多类似的语法糖后面还会出现这样的东西
