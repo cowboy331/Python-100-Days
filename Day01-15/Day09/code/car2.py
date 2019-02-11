@@ -16,6 +16,7 @@ class Car(object):
 		self.set_brand(brand)
 		self.set_max_speed(max_speed)
 
+# _brand是不是默认不需要定义？
 	def get_brand(self):
 		return self._brand
 

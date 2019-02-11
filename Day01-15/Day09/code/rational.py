@@ -20,6 +20,7 @@ class Rational(object):
 		self._den = den
 		self.normalize()
 
+# 化简
 	def simplify(self):
 		x = abs(self._num)
 		y = abs(self._den)
@@ -29,6 +30,7 @@ class Rational(object):
 			self._den //= factor
 		return self
 
+# 如果分子为负，分子、分母同时取反
 	def normalize(self):
 		if self._den < 0:
 			self._den = -self._den

@@ -44,4 +44,13 @@ if __name__ == '__main__':
 	d = D()
 	d.foo()
 	e = E()
-	e.foo()
+	e.foo()	#最后两个输出不明白。。
+
+"""
+结果：
+foo fo C
+foo in E
+foo fo C
+foo fo C
+foo of A
+"""
