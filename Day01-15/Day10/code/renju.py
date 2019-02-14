@@ -1,3 +1,5 @@
+# 五子棋盘
+
 import pygame
 
 EMPTY = 0

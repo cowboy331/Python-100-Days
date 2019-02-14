@@ -31,7 +31,7 @@ class Employee(object, metaclass=ABCMeta):
 
 
 class Manager(Employee):
-
+#这里会怎样？？还没想出来。。
 	# 想一想: 如果不定义构造方法会怎么样
 	def __init__(self, name):
 		# 想一想: 如果不调用父类构造器会怎么样

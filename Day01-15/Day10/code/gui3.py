@@ -2,7 +2,7 @@
 
 使用tkinter创建GUI
 	- 在窗口上制作动画
-
+	- 小球从左上角运动到右下角
 Version: 0.1
 Author: 骆昊
 Date: 2018-03-14

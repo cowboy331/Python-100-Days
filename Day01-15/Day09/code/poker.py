@@ -1,3 +1,5 @@
+# 没太看明白。。
+
 import random
 
 
@@ -48,7 +50,7 @@ class Poker(object):
     def shuffle(self):
         """洗牌-随机乱序"""
         self._current=0
-        random.shuffle(self._cards)
+        random.shuffle(self._cards)     #shuffle()方法将序列的所有元素随机排序
 
     @property
     def next(self):
@@ -56,3 +58,50 @@ class Poker(object):
         card=self._cards[self._current]
         self._current+=1
         return card
+
+    @property
+    def has_next(self):
+        """还有没有牌"""
+        return self._current<len(self._cards)
+
+class Player(object):
+    """玩家"""
+
+    def __init__(self,name):
+        self._name=name
+        self._cards_on_hand=[]
+
+    @property
+    def name(self):
+        return self._name
+
+    @property
+    def cards_on_hand(self):
+        return self._cards_on_hand
+
+    def get(self,card):
+        """摸牌"""
+        self._cards_on_hand.append(card)
+
+    def arrange(self,card_key):
+        """玩家整理手上的牌"""
+        self._cards_on_hand.sort(key=card_key)
+
+# 排序规则-先根据花色再根据点数排序
+def get_key(card):
+    return (card.suite, card.face)
+
+def main():
+    p=Poker()
+    p.shuffle()
+    players=[Player('东邪'), Player('西毒'), Player('南帝'), Player('北丐')]
+    for _ in range(13):
+        for player in players:
+            player.get(p.next)
+    for player in players:
+        print(player.name+':',end='')
+        player.arrange(get_key)
+        print(player.cards_on_hand)
+
+if __name__=='__main__':
+    main()
