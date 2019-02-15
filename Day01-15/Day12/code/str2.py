@@ -25,6 +25,7 @@ def reverse_str3(str):
 	# StringIO对象是Python中的可变字符串
 	# 不应该使用不变字符串做字符串连接操作 因为会产生很多无用字符串对象
 	rstr = StringIO()
+	# print(type(rstr))
 	str_len = len(str)
 	for index in range(str_len - 1, -1, -1):
 		rstr.write(str[index])
@@ -42,6 +43,7 @@ def reverse_str5(str):
 	# 使用zip函数将两个序列合并成一个产生元组的迭代器
 	# 每次正好可以取到一前一后两个下标来实现元素的交换
 	for i, j in zip(range(str_len // 2), range(str_len - 1, str_len // 2, -1)):
+		print(i,j)
 		str_list[i], str_list[j] = str_list[j], str_list[i]
 	# 将列表元素连接成字符串
 	return ''.join(str_list)

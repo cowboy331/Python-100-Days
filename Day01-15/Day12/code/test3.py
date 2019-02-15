@@ -14,6 +14,8 @@ import re
 def main():
     username = input('请输入用户名: ')
     qq = input('请输入QQ号: ')
+    # match函数的第一个参数是正则表达式字符串或正则表达式对象
+    # 第二个参数是要跟正则表达式做匹配的字符串对象
     m1 = re.match(r'^[0-9a-zA-Z_]{6,20}$', username)
     if not m1:
         print('请输入有效的用户名.')
