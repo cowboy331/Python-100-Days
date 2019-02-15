@@ -5,6 +5,16 @@
 因为正则表达式中有很多元字符和需要进行转义的地方，
 如果不使用原始字符串就需要将反斜杠写作\\，例如表示数字的\d得书写成\\d，
 这样不仅写起来不方便，阅读的时候也会很吃力。
+
+re.match函数：（从第一字符开始匹配，不匹配则不成功，这也是match和search的区别）
+函数语法： re.match(pattern, string, flags=0)
+匹配结果：re.match匹配成功会返回一个对象，否则返回None。
+用group（num=0）或groups（）来获取匹配的结果
+
+函数语法：re.search(pattern, string, flags=0)
+匹配结果：如果匹配成功则返回一个匹配的对象，否则返回None。
+用group（num=0）或groups（）来获取匹配的结果。
+
 """
 
 import re
