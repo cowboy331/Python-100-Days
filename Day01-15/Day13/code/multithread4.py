@@ -20,7 +20,7 @@ def main():
 
         def run(self):
             # 模拟下载任务需要花费10秒钟时间
-            time.sleep(10)
+            time.sleep(3)
             tkinter.messagebox.showinfo('提示', '下载完成!')
             # 启用下载按钮
             button1.config(state=tkinter.NORMAL)

@@ -15,7 +15,7 @@ import tkinter.messagebox
 
 def download():
     # 模拟下载任务需要花费10秒钟时间
-    time.sleep(10)
+    time.sleep(3)
     tkinter.messagebox.showinfo('提示', '下载完成!')
 
 

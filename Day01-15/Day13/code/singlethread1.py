@@ -14,7 +14,7 @@ from time import time, sleep
 
 def download_task(filename):
     print('开始下载%s...' % filename)
-    time_to_download = randint(5, 10)
+    time_to_download = randint(3, 5)
     sleep(time_to_download)
     print('下载完成! 耗费了%d秒' % time_to_download)
 

@@ -1,6 +1,9 @@
 """
 
 使用多线程的情况 - 模拟多个下载任务
+通过自定义的线程类创建线程对象
+1、run：如果在创建Process对象的时候不指定target，
+那么就会默认执行Process的run方法：
 
 Version: 0.1
 Author: 骆昊

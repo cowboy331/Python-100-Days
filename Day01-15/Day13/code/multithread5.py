@@ -1,7 +1,7 @@
 """
 
 多个线程共享数据 - 没有锁的情况
-
+？？每次都存100元呀
 Version: 0.1
 Author: 骆昊
 Date: 2018-03-20
@@ -26,7 +26,7 @@ class Account(object):
             sleep(0.01)
             self._balance = new_balance
         finally:
-            # 这段代码放在finally中保证释放锁的操作一定要执行
+            # 这段代码放在finally中保证正常、异常锁都能释放
             self._lock.release()
 
     @property
