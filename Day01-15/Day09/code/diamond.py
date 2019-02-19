@@ -45,19 +45,22 @@ class E(D):
 
 	def foo(self):
 		print('foo in E')
-		print('super().foo:')
-		super().foo()
-		print('super(B,self).foo():')
-		super(B, self).foo()
-		print('super(C,self).foo():')
-		super(C, self).foo()
+		# print('super().foo:')
+		super().foo()	# 父类中，找到最近的foo，在C中
+		# print('super(B,self).foo():')
+		super(B, self).foo()	#B的父类中，找到最近的foo，在C中
+		# print('super(C,self).foo():')
+		super(C, self).foo()	#C的父类中，找到最近的foo，在A中
 
 
 if __name__ == '__main__':
+	print(B.__mro__)
 	d = D()
 	d.foo()
+	# print(D.__mro__)
 	e = E()
-	e.foo()	#最后1个输出不明白。。
+	e.foo()
+	# print(E.__mro__)
 
 """
 结果：
