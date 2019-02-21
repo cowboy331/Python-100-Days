@@ -5,7 +5,8 @@ from base64 import b64decode
 
 def main():
     client = socket()
-    client.connect(('192.168.1.2', 5566))
+    # client.connect(('192.168.1.2', 5566))
+    client.connect(('127.0.0.1', 5566))
     # 定义一个保存二进制数据的对象
     in_data = bytes()
     # 由于不知道服务器发送的数据有多大每次接收1024字节
@@ -19,7 +20,7 @@ def main():
     my_dict = loads(in_data.decode('utf-8'))
     filename = my_dict['filename']
     filedata = my_dict['filedata'].encode('utf-8')
-    with open('/Users/Hao/' + filename, 'wb') as f:
+    with open('../' + filename, 'wb') as f:
         # 将base64格式的数据解码成二进制数据并写入文件
         f.write(b64decode(filedata))
     print('图片已保存.')

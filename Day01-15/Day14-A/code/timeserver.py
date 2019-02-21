@@ -11,7 +11,8 @@ def main():
     # type=SOCK_RAW - 原始套接字
     server = socket(family=AF_INET, type=SOCK_STREAM)
     # 2.绑定IP地址和端口(区分不同的服务)
-    server.bind(('192.168.1.2', 6789))
+    # server.bind(('192.168.1.2', 6789))
+    server.bind(('127.0.0.1', 12345))
     # 3.开启监听 - 监听客户端连接到服务器
     server.listen(512)
     print('服务器启动开始监听...')
@@ -23,6 +24,7 @@ def main():
         # 第二个元素是客户端的地址(由IP和端口两部分构成)
         client, addr = server.accept()
         print(str(addr) + '连接到了服务器.')
+        print('客户端对象是：'+client)
         # 5.发送数据
         client.send(str(datetime.now()).encode('utf-8'))
         # 6.断开连接

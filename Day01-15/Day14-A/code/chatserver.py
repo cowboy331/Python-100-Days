@@ -30,7 +30,8 @@ def main():
                 print(e)
 
     server = socket()
-    server.bind(('10.7.189.118', 12345))
+    # server.bind(('10.7.189.118', 12345))
+    server.bind(('127.0.0.1', 12345))
     server.listen(512)
     clients = []
     while True:
