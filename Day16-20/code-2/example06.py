@@ -14,6 +14,12 @@ json - 字符形式的序列化
 pickle - 字节形式的序列化
 dumps / loads
 """
+
+'''
+Base64是一种用64个字符来表示任意二进制数据的方法。
+用记事本打开exe、jpg、pdf这些文件时，我们都会看到一大堆乱码，因为二进制文件包含很多无法显示和打印的字符，
+所以，如果要让记事本这样的文本处理软件能处理二进制数据，就需要一个二进制到字符串的转换方法。Base64是一种最常见的二进制编码方法。
+'''
 import base64
 import json
 import redis
@@ -28,9 +34,10 @@ class PersonJsonEncoder(json.JSONEncoder):
 
 
 def main():
-    cli = redis.StrictRedis(host='120.77.222.217', port=6379, 
-                            password='123123')
-    data = base64.b64decode(cli.get('guido'))
+    # cli = redis.StrictRedis(host='120.77.222.217', port=6379,
+    #                         password='123123')          # 创建StrictRedis对象，与redis服务器建⽴连接
+    cli = redis.StrictRedis(host='120.77.222.217', port=6379)          # 创建StrictRedis对象，与redis服务器建⽴连接
+    data = base64.b64decode(cli.get('guido'))   # 获取键name guido的值，变为base64编码
     with open('guido2.jpg', 'wb') as file_stream:
         file_stream.write(data)
     # with open('guido.jpg', 'rb') as file_stream:
