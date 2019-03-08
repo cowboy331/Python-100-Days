@@ -51,7 +51,7 @@ def main():
     # print(students)
     stu = Student(1234, '骆昊')
     stu.gender = 'Male'
-    # stu.birth = '1980-11-28'
+    stu.birth = '1980-11-28'
     print(stu.name, stu.birth)
     school = School('千锋教育')
     school[1001] = Student(1001, '王大锤')
