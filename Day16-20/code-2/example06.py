@@ -37,7 +37,11 @@ def main():
     # cli = redis.StrictRedis(host='120.77.222.217', port=6379,
     #                         password='123123')          # 创建StrictRedis对象，与redis服务器建⽴连接
     cli = redis.StrictRedis(host='120.77.222.217', port=6379)          # 创建StrictRedis对象，与redis服务器建⽴连接
-    data = base64.b64decode(cli.get('guido'))   # 获取键name guido的值，变为base64编码
+    g=cli.get('guido')
+    print(type(g))
+    # 获取键name guido的值，变为base64编码。此处cli.get返回的是nonetype类型，
+    # 而b64decode()的参数要求是byte类型或ASCII类型，因此会报错
+    data = base64.b64decode(cli.get('guido'))
     with open('guido2.jpg', 'wb') as file_stream:
         file_stream.write(data)
     # with open('guido.jpg', 'rb') as file_stream:

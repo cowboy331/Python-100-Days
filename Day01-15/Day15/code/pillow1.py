@@ -17,10 +17,11 @@ print(img.format_description)
 img.save('./res/guido.png')
 
 img2 = Image.open('./res/guido.png')
-img3 = img2.crop((335, 435, 430, 615))
+img3 = img2.crop((335, 435, 430, 615))	#对图片做裁切
 for x in range(4):
 	for y in range(5):
 		img2.paste(img3, (95 * y , 180 * x))
 img2.resize((img.size[0] // 2, img.size[1] // 2))
 img2.rotate(90)
 img2.save('./res/guido2.png')
+img3.save('./res/guido3.png')

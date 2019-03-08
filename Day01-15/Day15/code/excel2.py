@@ -12,7 +12,7 @@ from openpyxl import load_workbook
 from openpyxl import Workbook
 
 workbook = load_workbook('./res/学生明细表.xlsx')
-print(workbook.sheetnames)
+	print(workbook.sheetnames)
 sheet = workbook[workbook.sheetnames[0]]
 print(sheet.title)
 for row in range(2, 7):

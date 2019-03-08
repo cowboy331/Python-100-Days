@@ -1,25 +1,24 @@
-"""
+import urllib.parse
+import http.client
+import json
 
-套接字 - 基于TCP协议创建时间服务器
 
-Version: 0.1
-Author: 骆昊
-Date: 2018-03-22
+def main():
+    host = "106.ihuyi.com"
+    sms_send_uri = "/webservice/sms.php?method=Submit"
+    recv_list = ['18600983398', '18611652168']
+    params = urllib.parse.urlencode(
+        {'account': '18600983398', 'password': '****', 'content': 'jjikk', 'mobile': recv_list, 'format': 'json'})
+    print(params)
+    headers = {'Content-type': 'application/x-www-form-urlencoded', 'Accept': 'text/plain'}
+    conn = http.client.HTTPConnection(host, port=80, timeout=30)
+    conn.request('POST', sms_send_uri, params, headers)
+    response = conn.getresponse()
+    response_str = response.read()
+    jsonstr = response_str.decode('utf-8')
+    print(json.loads(jsonstr))
+    conn.close()
 
-"""
 
-from socket import *
-from time import *
-
-server = socket(AF_INET, SOCK_STREAM)
-server.bind(('localhost', 6789))
-server.listen()
-print('服务器已经启动正在监听客户端连接.')
-while True:
-	client, addr = server.accept()
-	print('客户端%s:%d连接成功.' % (addr[0], addr[1]))
-	currtime = localtime(time())
-	timestr = strftime('%Y-%m-%d %H:%M:%S', currtime)
-	client.send(timestr.encode('utf-8'))
-	client.close()
-server.close()
+if __name__ == '__main__':
+    main()

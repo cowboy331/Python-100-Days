@@ -7,7 +7,7 @@ n! = n * (n-1)!
 f(n) = f(n-1) + f(n-2)
 1 1 2 3 5 8 13 21 34 55 ...
 """
-from contextlib import contextmanager
+from contextlib import contextmanager       # 为了使用with语句，而进行上下文管理
 from time import perf_counter
 
 
@@ -57,6 +57,14 @@ def timer():
         end = perf_counter()
         print(f'{end - start}秒')
 
+'''
+代码的执行顺序是：
+
+with语句首先执行yield之前的语句，因此打印出<h1>；
+yield调用会执行with语句内部的所有语句，因此打印出hello和world；
+最后执行yield之后的语句，打印出</h1>。
+因此，@contextmanager让我们通过编写generator来简化上下文管理。
+'''
 
 def main():
     """主函数"""

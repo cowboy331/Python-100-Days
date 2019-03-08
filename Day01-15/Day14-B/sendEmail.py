@@ -21,9 +21,9 @@ Message
 
 """
 
-from socket import *
-from time import *
-
+# from socket import *
+# from time import *
+#
 from smtplib import SMTP
 from email.header import Header
 from email.mime.text import MIMEText

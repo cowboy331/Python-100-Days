@@ -1,4 +1,5 @@
- """
+# encoding=utf-8
+"""
 查找 - 顺序查找和二分查找
 算法：解决问题的方法（步骤）
 评价一个算法的好坏主要有两个指标：渐近时间复杂度和渐近空间复杂度，通常一个算法很难做到时间复杂度和空间复杂度都很低（因为时间和空间是不可调和的矛盾）
@@ -20,7 +21,11 @@ from matplotlib import pyplot
 
 import numpy
 
-
+'''
+->
+for it to effectively describe that function f returns an object of type int.
+The annotations are not used in any way by Python itself, it pretty much populates and ignores them. It's up to 3rd party libraries to work with them.
+'''
 def seq_search(items: list, elem) -> int:
     """顺序查找"""
     for index, item in enumerate(items):

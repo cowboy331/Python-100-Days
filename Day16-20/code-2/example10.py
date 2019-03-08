@@ -2,6 +2,13 @@
 装饰类的装饰器 - 单例模式 - 一个类只能创建出唯一的对象
 上下文语法：
 __enter__ / __exit__
+
+zzzzzzzzzz#创建锁
+mutex = threading.Lock()
+#锁定
+mutex.acquire([timeout])
+#释放
+mutex.release()
 """
 import threading
 
@@ -11,6 +18,7 @@ from functools import wraps
 def singleton(cls):
     """单例装饰器"""
     instances = {}
+    # 创建锁
     lock = threading.Lock()
 
     @wraps(cls)

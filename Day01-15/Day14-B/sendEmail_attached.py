@@ -20,29 +20,50 @@ Message
 
 
 """
-
-from socket import *
-from time import *
+#
+# from socket import *
+# from time import *
 
 from smtplib import SMTP
 from email.header import Header
 from email.mime.text import MIMEText
+from email.mime.image import MIMEImage
+from email.mime.multipart import MIMEMultipart
+
+import urllib
 
 # 注意到构造MIMEText对象时，第一个参数就是邮件正文，第二个参数是MIME的subtype，
 # 传入'plain'，最终的MIME就是'text/plain'，最后一定要用utf-8编码保证多语言兼容性。
 def main():
+	message=MIMEMultipart()	#创建一个带附件的邮件消息对象
+	text_content=MIMEText('附件有数据请查收','plain','utf-8')	#创建文本内容
+	message.attach(text_content)	#文本内容加到邮件消息对象中
+	#读取文件，并将文件作为附件添加到邮件消息对象中
+	with open('../hello.txt','rb') as f:
+		txt=MIMEText(f.read(),'base64','utf-8')
+		txt['Content-Type']='text/plain'
+		txt['Content-Disposition']='attachment;filename=hello.txt'
+		message.attach(txt)
+	with open('../数据汇总.xlsx','rb')as f:
+		xls=MIMEText(f.read(),'base64','utf-8')
+		xls['Content-Type']='application/vnd.ms-excel'
+		xls['Content-Disposition']='attachment;filename=month-data.xlsx'
+		message.attach(xls)
+
+	smtper=SMTP(input('smtp server:'))
+	# 开启安全连接
+	# smtper.starttls()
 	sender=input('From:')
 	password=input('PW:')
 	receiver=input('To:')
-	smtper=input('smtp server:')
-	message=MIMEText('用python发送邮件的示例。','plain','utf-8')
-	message['From']=Header('kk的qq邮箱','utf-8')
-	message['To']=Header('kk的好友','utf-8')
-	message['Subject']=Header('示例代码实验邮件','utf-8')
+	# message=MIMEText('用python发送邮件的示例。','plain','utf-8')
+	# message['From']=Header('kk的qq邮箱','utf-8')
+	# message['To']=Header('kk的好友','utf-8')
+	# message['Subject']=Header('示例代码实验邮件','utf-8')
 
-	smtper=SMTP(smtper)
 	smtper.login(sender,password)
 	smtper.sendmail(sender,receiver,message.as_string())
+	smtper.quit()
 	print('邮件发送完成！')
 
 if __name__ == '__main__':
