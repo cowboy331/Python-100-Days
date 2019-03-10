@@ -5,6 +5,7 @@ from random import randint
 
 def main():
     answer = randint(1, 100)
+    print('answer=%d' %answer)
     while True:
         number = int(input('请输入: '))
         if number < answer:

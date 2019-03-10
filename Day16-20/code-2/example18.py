@@ -7,7 +7,7 @@ import threading
 
 
 class SingletonMeta(type):
-    """自定义元类"""
+    """自定义元类，单例元类"""
 
     def __init__(cls, *args, **kwargs):
         cls.__instance = None

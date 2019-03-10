@@ -40,7 +40,6 @@ from PIL import Image
 
 
 def gen_thumbnail(infile):
-    file, ext = os.path.splitext(infile)
     filename = file[file.rfind('/') + 1:]
     for size in (32, 64, 128):
         outfile = f'thumbnails/{filename}_{size}_{size}.png'
@@ -64,7 +63,7 @@ def gen_thumbnail(infile):
 
 
 def main():
-    pool = ThreadPoolExecutor(max_workers=30)
+    pool = ThreadPoolExecutor(max_workers=30)   # 线程池pool中最多运行的线程数是30
     futures = []
     start = time.time()
     for infile in glob.glob('images/*'):

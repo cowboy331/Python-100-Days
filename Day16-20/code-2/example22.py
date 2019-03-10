@@ -38,6 +38,8 @@ def is_prime(n):
             return False
     return True
 
+# 从参数中的多个迭代器取元素组合成一个新的迭代器；
+# 两个参数时，zip(a,b)，zip()函数分别从a和b依次各取出一个元素组成元组，再将依次组成的元组组合成一个新的迭代器--新的zip类型数据。
 
 def main():
     """主函数"""

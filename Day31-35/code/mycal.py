@@ -7,6 +7,12 @@ import sys
 def is_leap(year):
     return year % 4 == 0 and year % 100 != 0 or year % 400 == 0
 
+def get_days(year, month):
+    days = [
+        [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
+        [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    ][is_leap(year)][month - 1]   # 若是闰年，取第二行；否则取第一行。days表示某月的天数
+    return days
 
 def main():
     if len(sys.argv) == 3:
@@ -17,9 +23,12 @@ def main():
         date = now.date
         month = now.month
         year = now.year
+    # print(len(sys.argv))
     m, y = (month, year) if month >= 3 else (month + 12, year - 1)
     c, y = y // 100, y % 100
     w = (y + y // 4 + c // 4 - 2 * c + 26 * (m + 1) // 10) % 7
+    # print("m,y,c,w:%f" %(m,y,c,w))
+    # print(m,y,c,w)
     month_words = [
         'January', 'February', 'March', 'April', 'May', 'June',
         'July', 'August', 'September', 'October', 'November', 'December'
@@ -30,7 +39,9 @@ def main():
     days = [
         [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
         [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-    ][is_leap(year)][month - 1]   
+    ][is_leap(year)][month - 1]   # 若是闰年，取第二行；否则取第一行。days表示某月的天数
+    # print('\n year:%d' %year)
+    # print('\n month:%d' % month)
     for day in range(1, days + 1):
         print(str(day).rjust(2), end=' ')
         w += 1
